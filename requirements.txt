@@ -57,4 +57,4 @@ torch
 torchvision
 torchaudio
 transformers
-streamlit
+streamlit==1.2.0
