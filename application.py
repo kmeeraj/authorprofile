@@ -45,7 +45,7 @@ def predictModelMethod(input):
 
 if __name__ == '__main__':
     st.title('Author Profiling')
-    input  = st.text_area('Input', value="", height=None, max_chars=None, key=None, help=None, on_change=None, args=None, kwargs=None, placeholder=None)
+    input  = st.text_area('Input', value="", height=None, max_chars=None, key=None, help=None)
     option = st.selectbox('Choose Model', ('enron', 'wapo', 'spooky'))
     button = st.button('Submit', key=None, help=None, on_click=predictModelMethod(input), args=None, kwargs=None)
     st.text('output')
