@@ -25,7 +25,7 @@ def loadfile():
     for dirname, _, filenames in os.walk('input'):
         for filename in filenames:
             print(os.path.join(dirname, filename))
-    data = pd.read_csv("input/blogtext.csv")
+    data = pd.read_csv("models/blogtext.csv")
     print(data.head(10))
     print(data.isna().any())
     print(data.shape)
@@ -84,7 +84,7 @@ def loadfile():
     print(Xtest)
     Ypred = model.predict(Xtest)
     print(Ypred)
-    filename = 'author_model.sav'
+    filename = 'models/author_model.sav'
     pickle.dump(model, open(filename, 'wb'))
     Ypred_inversed = binarizer.inverse_transform(Ypred)
     y_test_inversed = binarizer.inverse_transform(Ytest)

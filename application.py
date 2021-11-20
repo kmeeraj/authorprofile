@@ -1,5 +1,5 @@
 import streamlit as st
-from run_profile import run_model
+from run_profile import run_model, load_data
 from process_model import load_enron_models, load_wapo_model, load_spooky_model, predict_enron_models, \
     unpickle_enron_dictionary, unpickle_wapo_dictionary, unpickle_spooky_dictionary, predict_wapo_model, \
     predict_spooky_model
@@ -18,15 +18,16 @@ def load_model():
     enron_label_dict = unpickle_enron_dictionary()
     wapo_label_dict = unpickle_wapo_dictionary()
     spooky_label_dict = unpickle_spooky_dictionary()
-    return enron_model, wapo_model, spooky_model, enron_label_dict, wapo_label_dict, spooky_label_dict
+    data = load_data()
+    return enron_model, wapo_model, spooky_model, enron_label_dict, wapo_label_dict, spooky_label_dict, data
 
 
 
 
 def predictModelMethod(input):
-    enron_model, wapo_model, spooky_model, enron_label_dict, wapo_label_dict, spooky_label_dict = load_model()
+    enron_model, wapo_model, spooky_model, enron_label_dict, wapo_label_dict, spooky_label_dict, data = load_model()
     print('option',  option)
-    secondary_Result = run_model(input)
+    secondary_Result = run_model(data,input)
     st.session_state.secondary = secondary_Result
     if option == 'enron':
         prediction = predict_enron_models(enron_model, option)
