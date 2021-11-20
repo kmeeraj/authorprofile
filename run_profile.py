@@ -3,7 +3,8 @@ from sklearn.feature_extraction.text import CountVectorizer
 import re  # regular expression
 import numpy as np  # linear algebra
 import pandas as pd
-
+import nltk
+nltk.download('stopwords')
 from nltk.corpus import stopwords
 stopwords=set(stopwords.words('english'))
 
