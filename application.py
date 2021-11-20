@@ -3,6 +3,8 @@ from run_profile import run_model
 from process_model import load_enron_models, load_wapo_model, load_spooky_model, predict_enron_models, \
     unpickle_enron_dictionary, unpickle_wapo_dictionary, unpickle_spooky_dictionary, predict_wapo_model, \
     predict_spooky_model
+import nltk
+nltk.download('stopwords')
 
 output = None
 secondary = None
