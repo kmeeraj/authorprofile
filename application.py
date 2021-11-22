@@ -33,7 +33,7 @@ def predictModelMethod(input):
     st.session_state.secondary = secondary_Result
 
 if __name__ == '__main__':
-    st.title('Secondary Author Profiling')
+    st.title('Characteristics of Author Profiling')
     input  = st.text_area('Input', height=350, value="", max_chars=None)
     # option = st.select_slider('Choose Model', options=['enron', 'wapo', 'spooky'])
     button = st.button('Submit', on_click=predictModelMethod(input), args=None, kwargs=None)
